@@ -24,11 +24,11 @@ jobs:
         # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
         key: sbt-cache
     - run:
-        name: Compile samplescala dist package
+        name: Compile cityBike dist package
         command: cat /dev/null | sbt clean update dist
     - store_artifacts: # for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-        path: target/universal/samplescala.zip
-        destination: samplescala
+        path: target/universal/cityBike.zip
+        destination: citybike
     - save_cache:
         key: sbt-cache
         paths:
