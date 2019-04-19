@@ -24,8 +24,8 @@ jobs:
         # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
         key: sbt-cache
     - run:
-        name: Compile cityBike dist package
-        command: cat /dev/null | sbt clean update dist
+        command:
+          sbt compile test:compile exit
     - store_artifacts: # for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
         path: target/universal/cityBike.zip
         destination: citybike
@@ -35,3 +35,6 @@ jobs:
         - "~/.ivy2/cache"
         - "~/.sbt"
         - "~/.m2"
+    - run:
+        command:
+          sbt test exit
