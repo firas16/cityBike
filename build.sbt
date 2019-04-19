@@ -1,10 +1,11 @@
 name := "cityBike"
 
-version := "1.0"
+version := "1.1"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 
-val sparkVersion = "2.1.0"
+
+val sparkVersion = "2.3.0"
 
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.5"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5"
