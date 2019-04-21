@@ -1,5 +1,7 @@
 package station
 
+import cityBike.StationParser
+
 class StationParserSuite extends SharedContext {
 
   "parseJson" should "get the right station.Station entities from string" in {

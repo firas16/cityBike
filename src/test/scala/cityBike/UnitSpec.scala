@@ -1,4 +1,4 @@
-package station
+package cityBike
 
 import java.io.File
 import java.util.{Locale, TimeZone}
@@ -44,7 +44,7 @@ abstract class SharedContext extends FlatSpecLike with BeforeAndAfterAll with Be
   }
 
   override def beforeEach(): Unit = {
-    FileUtils.deleteDirectory(new File("target/test/output"))
+    FileUtils.deleteDirectory(new File("target/test"))
     super.beforeEach()
   }
 
@@ -55,7 +55,7 @@ abstract class SharedContext extends FlatSpecLike with BeforeAndAfterAll with Be
         _spark = null
       }
     } finally {
-      FileUtils.deleteDirectory(new File("target/test/output"))
+      FileUtils.deleteDirectory(new File("target/test/"))
       super.afterAll()
     }
   }

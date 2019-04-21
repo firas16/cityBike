@@ -4,6 +4,7 @@ version := "1.1"
 
 scalaVersion := "2.11.8"
 
+parallelExecution in Test := false
 
 val sparkVersion = "2.3.0"
 

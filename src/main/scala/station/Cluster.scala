@@ -1,5 +1,0 @@
-package station
-
-object Cluster {
-
-}
