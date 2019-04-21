@@ -1,6 +1,6 @@
-package station
+package cityBike.station
 
-import cityBike.StationParser
+import cityBike.SharedContext
 
 class StationParserSuite extends SharedContext {
 
