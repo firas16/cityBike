@@ -5,7 +5,7 @@ This repository contains a program that reads a json file into a dataframe then 
 In order to run the job:
 
 Requirements:
-- Spark 2.3
+- Spark 2.4
 - Java 8
 
 You need to create the Jar file by running sbt assembly inside your IDE. This step is not necessary if you have already the Jar file.
