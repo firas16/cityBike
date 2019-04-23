@@ -29,6 +29,7 @@ object ClusterMain extends Main{
     import sqlContext.sparkSession.implicits._
     val stationDS = stations.toDF.as[Station]
 
+    stationDS.show()
     logger.info("Calculate approximate coordinates...")
     //Calculate approximate (x, y) coordinates
     import org.apache.spark.sql.functions.{col, udf}
@@ -51,6 +52,8 @@ object ClusterMain extends Main{
         x => x.asInstanceOf[Double]
       })
     }
+
+    logger.info("training Kmeans...")
     val clusters = KMeans.train(data, numClusters, numIterations)
 
     // Evaluate clustering by computing Within Set Sum of Squared Errors

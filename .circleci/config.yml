@@ -35,6 +35,11 @@ jobs:
         - "~/.ivy2/cache"
         - "~/.sbt"
         - "~/.m2"
+
+    - run: sbt -v $SBT_OPTS ++$SCALA_VERSION coverage test coverageReport coverageAggregate
+    - run: ./scripts/circleci_repl.sh
+    - run: bash <(curl -s https://codecov.io/bash)
+
     - run:
         command:
           sbt test exit
