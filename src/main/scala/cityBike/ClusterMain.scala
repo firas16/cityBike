@@ -3,7 +3,7 @@ package cityBike
 import org.apache.spark.mllib.clustering.KMeans
 import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.sql.{Dataset, SQLContext}
-import station.{Station, StationParser}
+import station.Station
 
 import scala.io.Source
 
@@ -18,16 +18,11 @@ object ClusterMain extends Main{
     val outputPath: String = argsMap("outputPath")
     logger.info("input path => " + inputPath)
     logger.info("output path => " + outputPath)
+    import sqlContext.implicits._
 
     logger.info("reading data...")
     //read json
-    val json = Source.fromFile(inputPath).mkString
-    //parse json
-    val stations = StationParser.parse(json)
-
-    //Convert to Dataset
-    import sqlContext.sparkSession.implicits._
-    val stationDS = stations.toDF.as[Station]
+    val stationDS = sqlContext.read.json(inputPath).as[Station]
 
     stationDS.show()
     logger.info("Calculate approximate coordinates...")

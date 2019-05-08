@@ -1,3 +1,3 @@
 package cityBike.station
 
-case class Station(id: Int, name: String, address: String, latitude: Double, longitude: Double)
+case class Station(number: BigInt, name: String, address: String, latitude: Double, longitude: Double)
